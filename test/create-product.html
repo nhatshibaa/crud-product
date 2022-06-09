@@ -9,13 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
-    <!-- This page plugin CSS -->
-    <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/4764cedd35.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 </head>
 
 <body>
@@ -33,9 +31,6 @@
 <!-- ============================================================== -->
 <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-    <!-- ============================================================== -->
-    <!-- Topbar header - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <header class="topbar" data-navbarbg="skin6">
         <nav class="navbar top-navbar navbar-expand-md">
             <div class="navbar-header" data-logobg="skin6">
@@ -263,11 +258,11 @@
                                                  aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                             class="hide-menu">Products </span></a>
                         <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                            <li class="sidebar-item"><a href="form.html" class="sidebar-link"><span
+                            <li class="sidebar-item"><a href="create-product.html" class="sidebar-link"><span
                                     class="hide-menu"> Create
                                         </span></a>
                             </li>
-                            <li class="sidebar-item"><a href="list.html" class="sidebar-link"><span
+                            <li class="sidebar-item"><a href="list-product.html" class="sidebar-link"><span
                                     class="hide-menu">List
                                         </span></a>
                             </li>
@@ -283,11 +278,12 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-7 align-self-center">
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Form Input Grid</h4>
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                                <li class="breadcrumb-item text-muted active" aria-current="page">Product</li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
                             </ol>
                         </nav>
                     </div>
@@ -295,96 +291,161 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
+            <div class="row" style="margin-left: 17%; margin-right: 22%">
+                <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">List Products</h4>
-                            <div class="table-responsive">
-                                <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Thumbnail</th>
-                                        <th>Price</th>
-                                        <th>Manufacturer</th>
-                                        <th>CreatedAt</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="products">
-                                </table>
-                            </div>
+                            <h4 class="card-title">Form</h4>
+                            <form action="list-product.html" method="post" name="form-product">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ID</label>
+                                                <input type="text" name="id" class="form-control" placeholder="Id">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Slug</label>
+                                                <input type="text" name="slug" class="form-control" placeholder="Slug">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Price</label>
+                                                <input type="text" name="price" class="form-control" placeholder="Price">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Manufacturer</label>
+                                                <input type="text" name="manu" class="form-control" placeholder="Manufacturer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Thumbnail</label>
+                                                <input type="text" name="thumb" class="form-control" placeholder="Thumbnail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea name="descrip" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Detail</label>
+                                                <textarea name="editor1"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <div class="text-left">
+                                            <button type="submit" name="btn-submit" class="btn btn-info">Submit</button>
+                                            <button type="reset" class="btn btn-dark">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a
-                    href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
         </div>
+        <footer class="footer text-center text-muted">
+            All Rights Reserved by Adminmart. Designed and Developed by <a
+                href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
     </div>
-</div>
-<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap tether Core JavaScript -->
-<script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-<script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- apps -->
-<!-- apps -->
-<script src="../dist/js/app-style-switcher.js"></script>
-<script src="../dist/js/feather.min.js"></script>
-<!-- slimscrollbar scrollbar JavaScript -->
-<script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-<script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-<!--Wave Effects -->
-<!-- themejs -->
-<!--Menu sidebar -->
-<script src="../dist/js/sidebarmenu.js"></script>
-<!--Custom JavaScript -->
-<script src="../dist/js/custom.min.js"></script>
-<!--This page plugins -->
-<script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var xmlHttpRequest = new XMLHttpRequest();
-        xmlHttpRequest.onreadystatechange = function () {
-            if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
-                var jsonResult = JSON.parse(xmlHttpRequest.responseText);
-                var contentText = ''
-                for (let i = 0; i < jsonResult.length; i++) {
-                    const element = jsonResult[i];
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="../dist/js/app-style-switcher.js"></script>
+    <script src="../dist/js/feather.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <!-- themejs -->
+    <!--Menu sidebar -->
+    <script src="../dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../dist/js/custom.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            handleSubmit();
+        })
+        function handleSubmit() {
+            var btnSubmit = document.forms["form-product"]["btn-submit"];
+            var txtId = document.getElementsByName("id");
+            var txtName = document.getElementsByName("name");
+            var txtSlug = document.getElementsByName("slug");
+            var txtPrice = document.getElementsByName("price");
+            var txtManufacturer = document.getElementsByName("manu");
+            var txtThumbnail = document.getElementsByName("thumb");
+            var txtDescription = document.getElementsByName("descrip");
+            var txtDetail = document.getElementsByName("editor1");
 
-                    contentText += `<tr>
-                                    <td>${element.id}</td>
-                                    <td>${element.name}</td>
-                                    <td><img src="${element.thumbnail}" class="img-thumbnail" width="70%"></td>
-                                    <td>${element.price}</td>
-                                    <td>${element.manufacturer}</td>
-                                    <td>${element.createdAt}</td>
-                                     <td>
-                                            <a href="/admin/customers/detail?id="><i
-                                                    class="fa-solid fa-circle-info" style="margin-right: 7px"></i></a>
-                                            <a href="/admin/customers/edit?id="><i
-                                                    class="fa fa-pen-square"></i></a>&nbsp;&nbsp;
-                                            <a href="/admin/customers/delete?id="
-                                               onclick="confirm('Are you sure?')"><i
-                                                    class="fa-solid fa-circle-xmark"></i></a>
-                                     </td>
-                                     </tr>`
-                }
-                var listProduct = document.getElementById('products');
-                if (listProduct !== undefined) {
-                    listProduct.innerHTML = contentText;
+            if (btnSubmit){
+                btnSubmit.onclick = function (event){
+                    event.preventDefault();
+                    var id = txtId.values;
+                    var name = txtName.values;
+                    var slug = txtSlug.values;
+                    var price = txtPrice.values;
+                    var manufacturer = txtManufacturer.values;
+                    var thumbnail = txtThumbnail.values;
+                    var description = txtDescription.values;
+                    var detail = txtDetail.values;
+                    var obj = {
+                        'id':id,
+                        'name': name,
+                        'slug': slug,
+                        'description': description,
+                        'detail': detail,
+                        'price': price,
+                        'manufacturer': manufacturer,
+                        'thumbnail': thumbnail
+                    }
+                    var dataToSend = JSON.stringify(obj);
+                    var xmlHttpRequest = new XMLHttpRequest();
+                    xmlHttpRequest.onreadystatechange = function () {
+                        if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+                            alert('Create product success!');
+                            window.location.href = '/list.html';
+                        }
+                    }
+                    xmlHttpRequest.open('POST', 'https://plantcoop.herokuapp.com/api/v1/products', false);
+                    xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
+                    xmlHttpRequest.send(dataToSend);
                 }
             }
-        }
-        xmlHttpRequest.open('GET', 'https://plantcoop.herokuapp.com/api/v1/products', false);
-        xmlHttpRequest.send();
-    })
-</script>
-</body>
 
+        }
+    </script>
+</div>
+</body>
 </html>
