@@ -278,12 +278,11 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-7 align-self-center">
-                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Form Input Grid</h4>
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
                                 <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                                <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">Products</li>
                             </ol>
                         </nav>
                     </div>
@@ -295,8 +294,8 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Form</h4>
-                            <form action="list-product.html" method="post" name="form-product">
+                            <h4 class="card-title">Create</h4>
+                            <form action="/list-product.html" method="post" name="form-product">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-2">
@@ -400,26 +399,26 @@
         })
         function handleSubmit() {
             var btnSubmit = document.forms["form-product"]["btn-submit"];
-            var txtId = document.getElementsByName("id");
-            var txtName = document.getElementsByName("name");
-            var txtSlug = document.getElementsByName("slug");
-            var txtPrice = document.getElementsByName("price");
-            var txtManufacturer = document.getElementsByName("manu");
-            var txtThumbnail = document.getElementsByName("thumb");
-            var txtDescription = document.getElementsByName("descrip");
-            var txtDetail = document.getElementsByName("editor1");
+            var txtId = document.forms["form-product"]["id"];
+            var txtName = document.forms["form-product"]["name"];
+            var txtSlug = document.forms["form-product"]["slug"];
+            var txtPrice = document.forms["form-product"]["price"];
+            var txtManufacturer = document.forms["form-product"]["manu"];
+            var txtThumbnail = document.forms["form-product"]["thumb"];
+            var txtDescription = document.forms["form-product"]["descrip"];
+            var txtDetail = document.forms["form-product"]["editor1"];
 
             if (btnSubmit){
                 btnSubmit.onclick = function (event){
                     event.preventDefault();
-                    var id = txtId.values;
-                    var name = txtName.values;
-                    var slug = txtSlug.values;
-                    var price = txtPrice.values;
-                    var manufacturer = txtManufacturer.values;
-                    var thumbnail = txtThumbnail.values;
-                    var description = txtDescription.values;
-                    var detail = txtDetail.values;
+                    var id = txtId.value;
+                    var name = txtName.value;
+                    var slug = txtSlug.value;
+                    var price = txtPrice.value;
+                    var manufacturer = txtManufacturer.value;
+                    var thumbnail = txtThumbnail.value;
+                    var description = txtDescription.value;
+                    var detail = txtDetail.value;
                     var obj = {
                         'id':id,
                         'name': name,
@@ -431,11 +430,12 @@
                         'thumbnail': thumbnail
                     }
                     var dataToSend = JSON.stringify(obj);
+                    console.log(dataToSend)
                     var xmlHttpRequest = new XMLHttpRequest();
                     xmlHttpRequest.onreadystatechange = function () {
                         if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
                             alert('Create product success!');
-                            window.location.href = '/list.html';
+                            window.location.href = '/list-product.html';
                         }
                     }
                     xmlHttpRequest.open('POST', 'https://plantcoop.herokuapp.com/api/v1/products', false);
@@ -443,7 +443,6 @@
                     xmlHttpRequest.send(dataToSend);
                 }
             }
-
         }
     </script>
 </div>
